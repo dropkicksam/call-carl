@@ -1,0 +1,22 @@
+# Configuration files with secrets
+config.js
+
+# Supabase
+.supabase/
+
+# Logs
+*.log
+.cursor/debug.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (if you add any)
+node_modules/
