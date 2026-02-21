@@ -64,6 +64,7 @@ header.with-margin {
 .logo img {
     width: 80px;
     height: 80px;
+    border-radius: 50%;
 }
 
 /* Centered logo for privacy/terms */
@@ -535,6 +536,30 @@ a:hover {
     color: #faf6f1;
 }
 
+.sms-consent {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.sms-consent p {
+    font-size: 13px;
+    color: #faf6f1;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.sms-consent a {
+    color: #faf6f1;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.sms-consent a:hover {
+    color: #fff;
+}
+
 /* ============================================
    Footer
    ============================================ */
@@ -582,11 +607,11 @@ footer a:hover {
         font-size: 36px;
         letter-spacing: 2px;
     }
-    
+
     .hero p {
         font-size: 16px;
     }
-    
+
     .problem h2,
     .solution h2,
     .how-it-works h2,
@@ -594,18 +619,48 @@ footer a:hover {
         font-size: 28px;
         letter-spacing: 2px;
     }
-    
+
     .signup-form {
         grid-template-columns: 1fr;
     }
-    
+
     .signup-form button {
         grid-column: 1;
     }
-    
+
     .cta-button {
         font-size: 16px;
         padding: 14px 30px;
+    }
+
+    .logo {
+        font-size: 20px;
+        gap: 12px;
+    }
+
+    .logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .phone-link {
+        font-size: 11px;
+        padding: 8px 12px;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 16px;
+        gap: 8px;
+    }
+
+    .phone-link {
+        font-size: 10px;
+        padding: 6px 10px;
+        letter-spacing: 0.5px;
     }
 }
 
