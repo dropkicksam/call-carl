@@ -8,10 +8,11 @@ const ALERT_EMAIL = Deno.env.get('ALERT_EMAIL') || 'hello@call-carl.com'
 
 interface SignupData {
   id: string
-  first_name: string
   email: string
-  phone: string
+  phone?: string
   zip_code: string
+  sms_consent: boolean
+  terms_consent: boolean
   created_at: string
 }
 
@@ -29,21 +30,22 @@ serve(async (req) => {
     }
 
     // Format the email
-    const emailSubject = `New Waitlist Signup - ${signup.first_name}`
+    const emailSubject = `New Call Carl Waitlist Signup`
     const emailBody = `
       <h2>New Waitlist Signup</h2>
       <p>A new person has joined the Call Carl waitlist!</p>
-      
+
       <h3>Signup Details:</h3>
       <ul>
-        <li><strong>Name:</strong> ${signup.first_name}</li>
         <li><strong>Email:</strong> ${signup.email}</li>
-        <li><strong>Phone:</strong> ${signup.phone}</li>
+        ${signup.phone ? `<li><strong>Phone:</strong> ${signup.phone}</li>` : '<li><strong>Phone:</strong> Not provided</li>'}
         <li><strong>Zip Code:</strong> ${signup.zip_code}</li>
+        <li><strong>SMS Consent:</strong> ${signup.sms_consent ? '✅ Yes' : '❌ No'}</li>
+        <li><strong>Terms Consent:</strong> ${signup.terms_consent ? '✅ Yes' : '❌ No'}</li>
         <li><strong>Signed up:</strong> ${new Date(signup.created_at).toLocaleString()}</li>
       </ul>
-      
-      <p><a href="https://www.call-carl.com/admin.html">View in Admin Panel</a></p>
+
+      <p><a href="https://call-carl.com/admin.html">View in Admin Panel</a></p>
     `
 
     // Send email via Resend
