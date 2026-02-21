@@ -281,9 +281,9 @@
 
                 <div class="consent-checkbox-group">
                     <label class="checkbox-label">
-                        <input type="checkbox" id="terms-consent" name="terms-consent">
+                        <input type="checkbox" id="terms-consent" name="terms-consent" required>
                         <span class="checkbox-text">
-                            I agree to the <a href="/terms.html">Terms & Conditions</a> and <a href="/privacy.html">Privacy Policy</a>.
+                            I agree to the <a href="/terms.html">Terms & Conditions</a> and <a href="/privacy.html">Privacy Policy</a>. <span style="color: #ff6b6b;">*</span>
                         </span>
                     </label>
                 </div>
@@ -355,6 +355,12 @@
 
                 if (zipCode.replace(/\D/g, '').length !== 5) {
                     showMessage('Please enter a valid 5-digit zip code', 'error');
+                    return;
+                }
+
+                // Terms & Conditions must be accepted
+                if (!termsConsent) {
+                    showMessage('Please agree to the Terms & Conditions and Privacy Policy to continue', 'error');
                     return;
                 }
 
